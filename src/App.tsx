@@ -1,19 +1,18 @@
 import "./App.css";
-import { useFetch } from "./hooks/useFetch";
-
-interface Data {
-	userId: string;
-	id: number;
-	title: string;
-	completed: string;
-}
+import { CompositeButton, ChildrenButton } from "./components";
 
 function App() {
-	const { data, loading, error } = useFetch<Data>("https://jsonplaceholder.typicode.com/todos/1");
+	const handler = () => {
+		alert("hay me clickiaste");
+	};
 
-	if (loading) return <p>cargando .....</p>;
-	if (error) return <p>Ha ocurrido un error: {error.message}</p>;
-	return JSON.stringify(data);
+	return (
+		<CompositeButton parentMethod={handler}>
+			<ChildrenButton>
+				<div>hola</div>
+			</ChildrenButton>
+		</CompositeButton>
+	);
 }
 
 export default App;
