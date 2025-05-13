@@ -1,5 +1,6 @@
 import "./App.css";
 import { CompositeButton, ChildrenButton } from "./components";
+import { GlobalProvider } from "./context/";
 
 function App() {
 	const handler = () => {
@@ -7,11 +8,13 @@ function App() {
 	};
 
 	return (
-		<CompositeButton parentMethod={handler}>
-			<ChildrenButton>
-				<div>hola</div>
-			</ChildrenButton>
-		</CompositeButton>
+		<GlobalProvider>
+			<CompositeButton parentMethod={handler}>
+				<ChildrenButton>
+					<p>Haciendo uso del context</p>
+				</ChildrenButton>
+			</CompositeButton>
+		</GlobalProvider>
 	);
 }
 

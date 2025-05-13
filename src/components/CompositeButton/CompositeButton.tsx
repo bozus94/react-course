@@ -1,5 +1,6 @@
-import { ReactNode } from "react";
+import { type ReactNode } from "react";
 import "./CompositeButton.css";
+import { useGlobalContext } from "../../context";
 
 interface Props {
 	children: ReactNode;
@@ -11,12 +12,25 @@ interface ChildrenProps {
 }
 
 export const ChildrenButton = ({ children }: ChildrenProps) => {
-	return <>{children}</>;
+	const { value } = useGlobalContext();
+	return (
+		<>
+			<h1>{value}</h1>
+			{children}
+		</>
+	);
 };
 
 export const CompositeButton = ({ children, parentMethod }: Props) => {
+	const { setValue } = useGlobalContext();
+
+	const handler = () => {
+		setValue(10);
+		parentMethod();
+	};
+
 	return (
-		<button className="custom-button" onClick={parentMethod}>
+		<button className="custom-button" onClick={handler}>
 			{children}
 		</button>
 	);
