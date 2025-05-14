@@ -1,20 +1,15 @@
 import "./App.css";
-import { CompositeButton, ChildrenButton } from "./components";
-import { GlobalProvider } from "./context/";
+import { /* BookReader, FocusRef, */ /* ShoppingCart */ PhoneBook } from "./components";
 
 function App() {
-	const handler = () => {
-		alert("hay me clickiaste");
-	};
-
 	return (
-		<GlobalProvider>
-			<CompositeButton parentMethod={handler}>
-				<ChildrenButton>
-					<p>Haciendo uso del context</p>
-				</ChildrenButton>
-			</CompositeButton>
-		</GlobalProvider>
+		<>
+			{/* <BookReader />
+			<br />
+			<FocusRef /> 
+			<ShoppingCart />*/}
+			<PhoneBook />
+		</>
 	);
 }
 
