@@ -1,21 +1,14 @@
 import "./App.css";
+import { PromiseExample } from "./components/ErrorBoundariesExample";
 import { Modal } from "./components/Modal";
-import { useModalContext } from "./components/Modal/context";
 
 function App() {
-	const { setState } = useModalContext();
-
-	const openModal = () => setState(true);
-
 	return (
 		<>
+			<PromiseExample />
 			<Modal>
-				<div>
-					<h2>Titulo del modal </h2>
-					<h3>subtitulo del modal</h3>
-				</div>
+				<p>El error boundary no me afecta</p>
 			</Modal>
-			<button onClick={openModal}>Open Modal</button>
 		</>
 	);
 }

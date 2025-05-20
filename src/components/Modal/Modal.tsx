@@ -26,6 +26,7 @@ export const Modal = ({ children }: Props) => {
 		const handleEscape = (e: KeyboardEvent) => {
 			if (e.key === "Escape") {
 				setState(false);
+				throw new Error("Probando el ErrorBoundary");
 			}
 		};
 
