@@ -1,6 +1,6 @@
 import axios from "axios";
 import { type Character, type UseApiCall } from "../models/";
-import { loadAbort } from "../utilities/loadAbort.utilities";
+import { loadAbort } from "../utilities";
 
 const BASE_URL = "https://rickandmortyapi.com/api";
 
